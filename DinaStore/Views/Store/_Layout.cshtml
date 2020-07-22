@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <title>SportsStore</title>
+    <style>
+        body {
+            background-color: snow;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark p-4 text-white">
+            <div class="col-auto"><h4>SPORTS STORE</h4></div>
+            <div class="col"></div>
+            <div class="col-auto text-right">
+                @await Component.InvokeAsync("Cart", Context.Session)
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+</body>
+</html>

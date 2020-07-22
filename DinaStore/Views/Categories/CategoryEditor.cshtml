@@ -1,0 +1,23 @@
+﻿@model Category
+
+<div class="row p-2">
+    <div class="col-1 col-xs-2"></div>
+    <div class="col col-xs-2">
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="col col-xs-2">
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="col col-xs-2">
+        @if (Model.Id == 0)
+        {
+            <button type="submit" class="btn btn-dark">Add</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-outline-dark">Save</button>
+            <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+        }
+    </div>
+</div>
+<hr />

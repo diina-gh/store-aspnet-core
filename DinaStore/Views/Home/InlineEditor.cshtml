@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Product>
+
+<div class="row">
+    <div class="col-1 col-xs-2 font-weight-bold">Id</div>
+    <div class="col col-xs-2 font-weight-bold">Name</div>
+    <div class="col col-xs-2 font-weight-bold">Category</div>
+    <div class="col col-xs-2 font-weight-bold">Purchase</div>
+    <div class="col col-xs-2 font-weight-bold">Retail</div>
+</div>
+<hr/>
+
+@{int i = 0; }
+<form asp-action="UpdateAll" method="post">
+    @foreach (Product p in Model)
+    {
+        <div class="row">
+            <div class="col-1 col-xs-2">
+                @p.Id
+                <input type="hidden" name="Product[@i].Id" value="@p.Id" />
+            </div>
+            <div class="col col-xs-2">
+                <input class="form-control" name="Product[@i].Name" value="@p.Name" />
+            </div>
+            <div class="col col-xs-2">
+                <input class="form-control" name="Product[@i].Category" value="@p.Category" />
+            </div>
+            <div class="col col-xs-2">
+                <input class="form-control" name="Product[@i].PurchasePrice" value="@p.PurchasePrice" />
+            </div>
+            <div class="col col-xs-2">
+                <input class="form-control" name="Product[@i].RetailPrice" value="@p.RetailPrice" />
+            </div>
+        </div>
+        <hr/>
+        i++;
+    }
+
+    <div class="text-center m-2">
+        <button type="submit" class="btn btn-primary">Save All</button>
+        <a asp-action="Index" class="btn btn-outline-danger">Cancel</a>
+    </div>
+</form>
